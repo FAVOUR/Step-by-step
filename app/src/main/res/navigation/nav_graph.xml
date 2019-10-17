@@ -10,6 +10,12 @@
         android:name="com.example.step_by_step.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+
+        <argument
+            android:name="titleofFragment"
+            android:defaultValue="NextPage"
+            app:argType="string"
+            />
         <action
             android:id="@+id/action_homeFragment_to_nextPage"
             app:destination="@id/nextPage" />
