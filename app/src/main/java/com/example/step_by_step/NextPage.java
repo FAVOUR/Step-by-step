@@ -22,13 +22,17 @@ public class NextPage extends Fragment {
     public NextPage() {
         // Required empty public constructor
     }
-    HomeFragmentArgs homeFragmentArgs;
+    NextPageArgs nextPageArgs;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-         homeFragmentArgs = HomeFragmentArgs.fromBundle(getArguments());
+        if ( (nextPageArgs.fromBundle(getArguments()) != null)){
+            nextPageArgs = NextPageArgs.fromBundle(getArguments());
+
+        }
+
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_next_page, container, false);
@@ -41,6 +45,6 @@ public class NextPage extends Fragment {
 
         TextView textView = (TextView)view.findViewById(R.id.next);
 
-        textView.setText(homeFragmentArgs.getTitleofFragment());
+        textView.setText(nextPageArgs.getYeah());
     }
 }

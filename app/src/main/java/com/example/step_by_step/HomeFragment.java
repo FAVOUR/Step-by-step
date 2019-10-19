@@ -48,7 +48,21 @@ public class HomeFragment extends Fragment {
         nextButton =view.findViewById(R.id.nextbutton);
         finalButton =view.findViewById(R.id.finalbutton);
 
-        nextButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_nextPage,null));
+        HomeFragmentDirections.ActionHomeFragmentToNextPage homeFragmentToNextPage =HomeFragmentDirections.actionHomeFragmentToNextPage().setYeah("Next Activity") ;
+
+
+//     //You can use this ......
+//        nextButton.setOnClickListener(Navigation.createNavigateOnClickListener(homeFragmentToNextPage));
+//
+//   .... or this
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HomeFragmentDirections.ActionHomeFragmentToNextPage homeFragmentToNextPage =HomeFragmentDirections.actionHomeFragmentToNextPage().setYeah("Next Activity") ;
+
+                Navigation.findNavController(view).navigate(homeFragmentToNextPage);
+            }
+        });
 
         finalButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_finalPage,null));
 
