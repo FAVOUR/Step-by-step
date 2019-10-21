@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         setupAppBarConfig();
 
-        setUpNav(navController);
-
         setUpActionBar(appBarConfiguration,navController);
 
 
@@ -62,14 +60,7 @@ public class MainActivity extends AppCompatActivity {
        NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
     }
 
-    private void setUpNav(NavController navController) {
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-
-        if(navigationView !=null){
-            NavigationUI.setupWithNavController(navigationView,navController);
-        }
-    }
 
     public void setupAppBarConfig() {
         DrawerLayout drawerLayout = findViewById(R.id.drawable_Layout);
@@ -83,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     .setFallbackOnNavigateUpListener(new AppBarConfiguration.OnNavigateUpListener() {
                         @Override
                         public boolean onNavigateUp() {
-                            return false;
+                            return true;
                         }
                     })
                     .build();
