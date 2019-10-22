@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     AppBarConfiguration appBarConfiguration;
+    NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         NavHostFragment navHost =(NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
 
-        NavController navController =navHost.getNavController();
+         navController =navHost.getNavController();
 
         setButtomNav(navController);
 
@@ -102,13 +103,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+          boolean value =super.onCreateOptionsMenu(menu);
 
-//        menu.add(R.menu.bottom_nav_elemet)
-        return super.onCreateOptionsMenu(menu);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
+
+        if(navigationView == null){
+            getMenuInflater().inflate(R.menu.overflow,menu);
+            return true ;
+
+        }
+
+
+        return value ;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        return NavigationUI.onNavDestinationSelected(item,Navigation.findNavController(this, R.id.nav_host_fragment)) || super.onOptionsItemSelected(item);
     }
 }
