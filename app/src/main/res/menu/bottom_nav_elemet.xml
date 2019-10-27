@@ -8,8 +8,8 @@
         android:icon="@drawable/ic_home_black_24dp"
         />
     <item
-        android:id="@+id/nextPage"
-        android:title="Home"
+        android:id="@+id/blankFragment"
+        android:title="DeepLink"
         android:icon="@drawable/ic_home_black_24dp"
         />
 </menu>
